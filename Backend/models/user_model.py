@@ -25,13 +25,13 @@ def get_all_users():
         return []
     
 
-    def add_user(email, name):
+def add_user(email, name):
         try:
             db = get_db_connection()
     
             cursor = db.cursor()
     
-            sql = "INSERT INTO users (email) VALUES (%s)"
+            sql = "INSERT INTO users (name, email) VALUES (%s, %s)"
     
             values = (email, name)
     

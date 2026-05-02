@@ -5,7 +5,7 @@ from flask import request
 
 user_bp = Blueprint("user_bp", __name__)
 
-@user_bp.route("/users", methods = ["GET"])
+@user_bp.route("/users/post", methods = ["GET"])
 def users():
     data = get_all_users()
     return jsonify(data)
@@ -15,9 +15,10 @@ def create_user():
 
     data = request.json
 
+    name = data["name"]
     email = data["email"]
 
-    success = add_user(email)
+    success = add_user(name, email)
 
     if success:
         return jsonify({
