@@ -45,5 +45,5 @@ def add_user(email, name):
             return True
     
         except Exception as e:
-            print("Error:", e)
+            print("FULL ERROR:", e)
             return False

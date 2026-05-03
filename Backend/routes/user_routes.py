@@ -5,12 +5,12 @@ from flask import request
 
 user_bp = Blueprint("user_bp", __name__)
 
-@user_bp.route("/users/post", methods = ["GET"])
+@user_bp.route("/users", methods = ["GET"])
 def users():
     data = get_all_users()
     return jsonify(data)
 
-@user_bp.route("/users", methods=["POST"])
+@user_bp.route("/users/post", methods=["POST"])
 def create_user():
 
     data = request.json
