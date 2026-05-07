@@ -1,30 +1,46 @@
-from flask import Blueprint, jsonify
-from models.user_model import get_all_users, add_user
-from flask import request
+from flask import Blueprint, jsonify, request
+
+from models.user_model import (
+    get_all_users,
+    add_user
+)
+
+from services.auth_service import hash_password
 
 
 user_bp = Blueprint("user_bp", __name__)
 
-@user_bp.route("/users", methods = ["GET"])
+
+@user_bp.route("/users", methods=["GET"])
 def users():
+
     data = get_all_users()
+
     return jsonify(data)
 
-@user_bp.route("/users/post", methods=["POST"])
-def create_user():
+
+@user_bp.route("/signup", methods=["POST"])
+def signup():
 
     data = request.json
 
     name = data["name"]
     email = data["email"]
+    password = data["password"]
 
-    success = add_user(name, email)
+    hashed_password = hash_password(password)
+
+    success = add_user(
+        name,
+        email,
+        hashed_password
+    )
 
     if success:
         return jsonify({
-            "message": "User added successfully"
+            "message": "User created successfully"
         })
 
     return jsonify({
-        "error": "Failed to add user"
+        "error": "Failed to create user"
     })
