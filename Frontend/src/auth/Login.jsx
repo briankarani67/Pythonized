@@ -5,37 +5,6 @@ import './Login.css'; // Create this file in the same folder
 // import LoadingOverlay from './LoadingOverlay';
 
 const Login = () => {
-    // const [credentials, setCredentials] = useState({ email: '', password: '' });
-    // const [error, setError] = useState('');
-    // const [loading, setLoading] = useState(false);
-    
-    // const navigate = useNavigate();
-
-    // const handleChange = (e) => {
-    //     setCredentials({ ...credentials, [e.target.name]: e.target.value });
-    // };
-
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     setError('');
-    //     setLoading(true);
-
-    //     try {
-    //         const response = await loginUser(credentials);
-            
-    //         // Store the token and user info
-    //         localStorage.setItem('token', response.data.token);
-    //         localStorage.setItem('user', JSON.stringify(response.data.user));
-
-    //         // Redirect to home or dashboard
-    //         navigate('/dashboard');
-    //     } catch (err) {
-    //         setError(err.response?.data?.message || 'Invalid email or password');
-    //     } finally {
-    //         setLoading(false);
-    //     }
-    // };
-
     return (
         <div className="login-wrapper">
             {/* {loading && <LoadingOverlay />} */}
