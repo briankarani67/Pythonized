@@ -5,7 +5,8 @@ def hash_password(password):
 
     hashed_password = bcrypt.hashpw(
         password_bin,
-        password.gensalt()
+        bcrypt.gensalt()
     )
 
     return hashed_password.decode("utf-8")
+
